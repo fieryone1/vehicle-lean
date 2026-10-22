@@ -133,6 +133,7 @@ library
     Vehicle.Backend.ITP.Agda
     Vehicle.Backend.ITP.Imandra
     Vehicle.Backend.ITP.Isabelle
+    Vehicle.Backend.ITP.Lean
     Vehicle.Backend.ITP.Rocq
     Vehicle.Backend.Loss.JSON
     Vehicle.Backend.Prelude

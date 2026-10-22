@@ -13,6 +13,7 @@ import System.Directory (makeAbsolute)
 import Vehicle.Backend.ITP.Agda
 import Vehicle.Backend.ITP.Imandra
 import Vehicle.Backend.ITP.Isabelle
+import Vehicle.Backend.ITP.Lean
 import Vehicle.Backend.ITP.Rocq
 import Vehicle.Backend.Loss.JSON
 import Vehicle.Backend.LossSearch (convertToSearchTree)
@@ -152,6 +153,10 @@ compileToITP ITPOptions {..} typedProg = do
         let imandraOptions = ImandraOptions outputFile moduleName
         imandraCode <- compileProgToImandra decProg imandraOptions
         writeImandraFile outputFile imandraCode
+      Lean -> do
+        let leanOptions = LeanOptions outputFile moduleName
+        leanCode <- compileProgToLean decProg leanOptions
+        writeLeanFile outputFile leanCode
 
 compileToLossFunction ::
   forall m.

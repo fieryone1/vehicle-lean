@@ -62,6 +62,7 @@ data InteractiveTheoremProverID
   | Rocq
   | Isabelle
   | Imandra
+  | Lean
   deriving (Eq, Show, Read, Bounded, Enum)
 
 instance Pretty InteractiveTheoremProverID where

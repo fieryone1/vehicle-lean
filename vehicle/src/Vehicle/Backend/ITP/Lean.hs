@@ -17,10 +17,8 @@ import Vehicle.Data.Variable.Bound.Context.Name
 -- Lean-specific options
 
 data LeanOptions = LeanOptions
-  { verificationCache :: Maybe FilePath,
-    output :: Maybe FilePath,
-    moduleName :: Maybe String,
-    constructiveReals :: Bool
+  { output :: Maybe FilePath,
+    moduleName :: Maybe String
   }
 
 currentPhase :: Doc ()

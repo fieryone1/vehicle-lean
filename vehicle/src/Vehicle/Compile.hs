@@ -154,7 +154,7 @@ compileToITP ITPOptions {..} typedProg = do
         imandraCode <- compileProgToImandra decProg imandraOptions
         writeImandraFile outputFile imandraCode
       Lean -> do
-        let leanOptions = LeanOptions outputFile moduleName
+        let leanOptions = LeanOptions absCache outputFile moduleName constructiveReals
         leanCode <- compileProgToLean decProg leanOptions
         writeLeanFile outputFile leanCode
 

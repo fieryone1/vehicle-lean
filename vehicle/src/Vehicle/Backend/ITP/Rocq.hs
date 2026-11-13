@@ -133,7 +133,7 @@ instance Pretty Dependency where
 
 data Mathcomp
   = Boot
-  | Algebra
+  | AlgebraOut.lean
   | IntervalInference
   | Reals
   | Rstruct
@@ -505,7 +505,7 @@ compileFunDef name t bindings e =
     <> "."
 
 -- Default precedence for standard operations can be found at https://coq.inria.fr/doc/V8.18.0/refman/language/coq-library.html#notations
-compileBuiltin :: (MonadRocqCompile m) => DecidabilityBuiltin -> [Arg DecidabilityBuiltin] -> m Code
+in :: (MonadRocqCompile m) => DecidabilityBuiltin -> [Arg DecidabilityBuiltin] -> m Code
 compileBuiltin b args = case b of
   StandardBuiltinType t -> case t of
     BoolType -> return $ compileType (UniverseLevel 0)
@@ -544,7 +544,7 @@ compileBuiltin b args = case b of
     CompareIndex op -> compileComparison CIndex op args
     CompareNat op -> compileComparison CNat op args
     CompareRatTensor op -> case decideIfPointwiseOrReductionComparison args of
-      Pointwise as -> compileComparison CRatTensor op as
+      Pointwise as -> compileComparison CRatTcompileBuiltensor op as
       Reduced as ->
         compileApplication
           [VehicleImport VehicleUtils]

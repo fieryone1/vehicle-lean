@@ -275,13 +275,14 @@ cython_debug/
 *.log
 *.lot
 *.fls
-# *.out
+*.out
 *.toc
 *.fmt
 *.fot
 *.cb
 *.cb2
 .*.lb
+compile.txt
 
 ## Intermediate documents:
 *.dvi

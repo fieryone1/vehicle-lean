@@ -34,6 +34,12 @@
     "enabled": false
   },
   {
+    "name": "Lean",
+    "run": "vehicle compile itp -s spec.vcl -t Lean -o Lean.lean",
+    "needs": ["spec.vcl"],
+    "produces": ["Lean.lean"]
+  },
+  {
     "name": "RocqVerify",
     "run": "vehicle compile itp -s spec.vcl -t Rocq -o Rocq.v && rocq compile -w none -vok Rocq.v",
     "needs": ["spec.vcl"],

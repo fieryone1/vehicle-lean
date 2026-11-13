@@ -8,5 +8,11 @@
     "produces": [
       "Rocq.v"
     ]
+  },
+  {
+    "name": "Lean",
+    "run": "vehicle compile itp -s spec.vcl -t Lean -o Lean.lean",
+    "needs": ["spec.vcl"],
+    "produces": ["Lean.lean"]
   }
 ]

@@ -283,6 +283,7 @@ cython_debug/
 *.cb2
 .*.lb
 compile.txt
+Lean_workspace
 
 ## Intermediate documents:
 *.dvi
@@ -585,3 +586,4 @@ tsconfig.tsbuildinfo
 ################################################################################
 
 !/vehicle/lib
+.lake

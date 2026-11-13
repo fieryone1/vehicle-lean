@@ -577,8 +577,8 @@ bracketArgs argLevels args = traverse bracketArg (zip argLevels args)
 compileNatLiteral :: Int -> Code
 compileNatLiteral i = atom $ pretty i
 
--- | Compile a tensor type to nested functions out of `Fin`:
--- `Fin n1 → ... → Fin nk → ℝ`, or just the element type for scalars.
+-- | Compile a tensor type to nested functions out of Fin:
+
 compileTensorType :: (MonadLeanCompile m) => [Arg DecidabilityBuiltin] -> m Code
 compileTensorType args = case getExpr accessSpine args of
   Just (TensorTypeArgs elemTypeArg dimsArg) -> do
@@ -589,7 +589,6 @@ compileTensorType args = case getExpr accessSpine args of
     case finTypes of
       [] -> return elemType
       _ -> do
-        -- The element type is the right-hand side of the final arrow.
         elemType' <- bracketOne (leanPrec 26) elemType
         return $ annotate (leanPrec 25) (concatWith (surround " → ") (finTypes <> [elemType']))
   Nothing -> developerError "compileTensorType: expected element type and dimension list"

@@ -3,7 +3,7 @@
 -- Metadata:
 --  - Vehicle version: 0.28.0+dev
 
-import Mathlib
+import Mathlib.Data.Real.Basic
 
 noncomputable section
 
